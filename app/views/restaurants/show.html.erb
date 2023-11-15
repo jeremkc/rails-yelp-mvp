@@ -1,0 +1,15 @@
+<%# voir les details des resto %>
+
+<%=@restaurant.name%>
+<%=@restaurant.address%>
+<%=@restaurant.address%>
+<%=@restaurant.category%>
+<%=@restaurant.phone_number%>
+<%#  acceder au review avec les restos%>
+<% @restaurant.reviews.each do |review| %>
+<%= review.content %>
+<% end %>
+
+<%= link_to 'back to list', restaurants_path%>
+<%# passe un resto %>
+<%= link_to 'add a review', new_restaurant_review_path(@restaurant)%>

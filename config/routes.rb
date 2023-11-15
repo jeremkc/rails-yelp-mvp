@@ -7,4 +7,14 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  resources :restaurants, only: [:index, :new, :create, :show] do
+    # creer une route /restaurant/review/id
+    # show un visiteur peut voir les détails d’un restaurant, avec tous les avis associés au restaurant.
+    # Un visiteur peut ajouter un nouvel avis à un restaurant.
+    # nester
+    resources :reviews, only: [:new, :create]
+  end
+
+  # get 'restaurants', to: 'restaurants#index'
+
 end
